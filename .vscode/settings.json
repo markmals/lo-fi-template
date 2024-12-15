@@ -1,0 +1,92 @@
+{
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"typescript.updateImportsOnFileMove.enabled": "always",
+
+	"editor.stickyScroll.enabled": true,
+
+	"biome.enabled": true,
+
+	"prettier.enable": false,
+	"eslint.enable": false,
+	"deno.enable": false,
+
+	"editor.codeActionsOnSave": {
+		"source.fixAll": "explicit",
+		"source.addMissingImports": "explicit",
+		"source.organizeImports.biome": "explicit",
+		"source.fixAll.biome": "explicit"
+	},
+
+	"editor.defaultFormatter": "biomejs.biome",
+	"editor.formatOnSave": true,
+
+	"[typescript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[tsx]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[mdx]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[markdown]": {
+		"editor.unicodeHighlight.ambiguousCharacters": false,
+		"editor.unicodeHighlight.invisibleCharacters": false,
+		"diffEditor.ignoreTrimWhitespace": false,
+		"editor.wordWrap": "on",
+		"editor.quickSuggestions": {
+			"comments": "off",
+			"strings": "off",
+			"other": "off"
+		},
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+
+	"explorer.fileNesting.enabled": true,
+	"explorer.fileNesting.expand": false,
+	"explorer.fileNesting.patterns": {
+		"*.css": "$(capture).css.map, $(capture).*.css",
+		".env": "*.env, .env.*",
+		"dockerfile": ".dockerignore, docker-compose.*, dockerfile*",
+		"fly.toml": ".dockerignore, docker-compose.*, dockerfile*",
+		"package.json": ".github*, .vscode*, biome*, bun.lockb, tsconfig.*",
+		"readme*": "authors, backers*, changelog*, citation*, code_of_conduct*, codeowners, contributing*, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors*",
+		"*.ts": "$(capture).ts.map, $(capture).*.ts, $(capture)_*.ts",
+		"*.tsx": "$(capture).ts, $(capture).*.tsx, $(capture)_*.ts, $(capture)_*.tsx",
+		"vite.config.*": "cypress.*, drizzle.config.*, react-router.config.*, tailwind.config.*, vitest.config.*, *.plugin.ts"
+	},
+	"files.exclude": {
+		"**/.DS_Store": true,
+		// "database/app.db*": true,
+		"build": true,
+		".react-router": true
+	},
+
+	"tailwindCSS.experimental.classRegex": [
+		["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+		["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+		["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+	],
+	"tailwindCSS.classAttributes": ["className"],
+
+	"todohighlight.keywords": [
+		"MARK:",
+		{
+			"text": "FIXME:",
+			"backgroundColor": "#F14848"
+		},
+		{
+			"text": "TODO:",
+			"backgroundColor": "#3593FF"
+		}
+	],
+	"todohighlight.defaultStyle": {
+		"backgroundColor": "#434B54",
+		"color": "#fff",
+		"borderRadius": "2px"
+	}
+}
