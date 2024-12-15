@@ -1,16 +1,15 @@
-import * as fs from "node:fs/promises";
+import fs from "node:fs/promises";
 import { $ } from "bun";
+import invariant from "tiny-invariant";
+
+invariant(process.env.DATABASE_URL, "Must define DATABASE_URL in .env file");
 
 try {
-	// Extract file path from DATABASE_URL
-	const databaseURL = new URL(process.env.DATABASE_URL!);
-	const databasePath = databaseURL.pathname.slice(1);
-
 	// Remove existing database file if it exists
-	await fs.unlink(databasePath).catch(() => {});
+	await fs.unlink(process.env.DATABASE_URL).catch(() => {});
 
 	// Create new empty database file
-	await fs.writeFile(databasePath, "");
+	await fs.writeFile(process.env.DATABASE_URL, "");
 
 	// Create necessary tables using drizzle-kit push
 	await $`bunx --bun drizzle-kit push`;

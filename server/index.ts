@@ -8,6 +8,7 @@ import { DatabaseContext, type Schema } from "~/database/context";
 import { books } from "./api/books";
 import "react-router";
 import invariant from "tiny-invariant";
+import { runMigrations } from "~/database/migrations";
 import { GuestBook } from "~/database/schema";
 import { provide } from "./context/context";
 
@@ -23,6 +24,11 @@ declare module "react-router" {
 const BUILD = await import("virtual:react-router/server-build");
 
 const server: Hono<BlankEnv, BlankSchema, "/"> = new Hono();
+
+if (import.meta.env.PROD) {
+	// Each time we deploy, we run the database migrations
+	await runMigrations();
+}
 
 const client = new Database(process.env.DATABASE_URL);
 const db = drizzle<Schema>(client, { schema: { guestBook: GuestBook } });

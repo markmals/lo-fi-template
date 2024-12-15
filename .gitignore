@@ -10,6 +10,7 @@
 .output
 
 # Database
-database/app.db
-database/app.db-shm
-database/app.db-wal
+database/db.sqlite3
+database/db.sqlite3-shm
+database/db.sqlite3-pos
+database/db.sqlite3-wal

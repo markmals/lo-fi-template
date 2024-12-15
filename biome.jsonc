@@ -57,24 +57,24 @@
 				"noUselessStringRaw": "warn",
 				"useAtIndex": "warn",
 				"useCollapsedIf": "warn",
-				// "useComponentExportOnlyModules": {
-				//     "level": "error",
-				//     "options": {
-				//         "allowExportNames": [
-				//             "loader",
-				//             "clientLoader",
-				//             "action",
-				//             "clientAction",
-				//             "ErrorBoundary",
-				//             "HydrateFallback",
-				//             "headers",
-				//             "handle",
-				//             "links",
-				//             "meta",
-				//             "shouldRevalidate"
-				//         ]
-				//     }
-				// },
+				"useComponentExportOnlyModules": {
+					"level": "error",
+					"options": {
+						"allowExportNames": [
+							"loader",
+							"clientLoader",
+							"action",
+							"clientAction",
+							"ErrorBoundary",
+							"HydrateFallback",
+							"headers",
+							"handle",
+							"links",
+							"meta",
+							"shouldRevalidate"
+						]
+					}
+				},
 				"useConsistentMemberAccessibility": {
 					"level": "error",
 					"options": {
@@ -101,7 +101,8 @@
 				"useFragmentSyntax": "warn",
 				"useImportType": "error",
 				"useNodejsImportProtocol": "error",
-				"useShorthandArrayType": "warn"
+				"useShorthandArrayType": "warn",
+				"noUnusedTemplateLiteral": "warn"
 			}
 		}
 	},

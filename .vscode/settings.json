@@ -51,8 +51,9 @@
 	"explorer.fileNesting.patterns": {
 		"*.css": "$(capture).css.map, $(capture).*.css",
 		".env": "*.env, .env.*",
+		".env.local": "*.env, .env.*",
 		"dockerfile": ".dockerignore, docker-compose.*, dockerfile*",
-		"fly.toml": ".dockerignore, docker-compose.*, dockerfile*",
+		"fly.toml": ".dockerignore, docker-compose.*, dockerfile*, litefs*",
 		"package.json": ".github*, .vscode*, biome*, bun.lockb, tsconfig.*",
 		"readme*": "authors, backers*, changelog*, citation*, code_of_conduct*, codeowners, contributing*, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors*",
 		"*.ts": "$(capture).ts.map, $(capture).*.ts, $(capture)_*.ts",
@@ -88,5 +89,8 @@
 		"backgroundColor": "#434B54",
 		"color": "#fff",
 		"borderRadius": "2px"
+	},
+	"[yaml]": {
+		"editor.defaultFormatter": "redhat.vscode-yaml"
 	}
 }
