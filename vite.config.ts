@@ -25,4 +25,7 @@ export default defineConfig(({ isSsrBuild }) => ({
 		target: "ES2022",
 		rollupOptions: isSsrBuild ? { input: SERVER_ENTRY } : undefined,
 	},
+	server: {
+		port: Number.parseInt(process.env.PORT || "4321"),
+	},
 }));

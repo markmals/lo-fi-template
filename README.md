@@ -1,6 +1,6 @@
-# Welcome to React Router!
+# The Lo-Fi Stack
 
-A modern, production-ready template for building full-stack React applications using React Router.
+The lowest-friction way to create a web app with great user experience and developer experience.
 
 ## Features
 
@@ -10,7 +10,7 @@ A modern, production-ready template for building full-stack React applications u
 - 🔄 Data loading and mutations
 - 🔒 TypeScript by default
 - 🎉 TailwindCSS for styling
-- 💾 PostgreSQL + DrizzleORM
+- 💾 SQLite + DrizzleORM
 - 📖 [React Router docs](https://reactrouter.com/)
 
 ## Getting Started
@@ -20,88 +20,73 @@ A modern, production-ready template for building full-stack React applications u
 Install the dependencies:
 
 ```bash
-npm install
+bun install
 ```
 
 ### Development
 
-Copy `.env.example` to `.env` and provide a `DATABASE_URL` with your connection string.
+Copy `.env.example` to `.env` and provide a `DATABASE_URL` with your database file path. The default is `"./database/db.sqlite3"`, which aligns with the Fly.io deployment configurations.
 
-Run an initial database migration:
-
-```bash
-npm run db:migrate
-```
-
-Start the development server with HMR:
+Start the development server:
 
 ```bash
-npm run dev
+bun run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+Your application will be available at `http://localhost:4321`.
 
 ## Building for Production
 
 Create a production build:
 
 ```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-This template includes three Dockerfiles optimized for different package managers:
-
-- `Dockerfile` - for npm
-- `Dockerfile.pnpm` - for pnpm
-- `Dockerfile.bun` - for bun
-
-To build and run using Docker:
-
-```bash
-# For npm
-docker build -t my-app .
-
-# For pnpm
-docker build -f Dockerfile.pnpm -t my-app .
-
-# For bun
-docker build -f Dockerfile.bun -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── server.js
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+bun run build
 ```
 
 ## Styling
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+This template comes with [Tailwind CSS](https://tailwindcss.com) already configured for a simple default starting experience.
+
+## Deployment
+
+This template includes deployment configuration for deploying using Bun and LiteFS on Fly.io.
+
+[Install `flyctl`](https://fly.io/docs/flyctl/install):
+
+```sh
+# macOS
+brew install flyctl
+
+# Linux
+curl -L https://fly.io/install.sh | sh
+
+# Windows
+pwsh -Command "iwr https://fly.io/install.ps1 -useb | iex"
+```
+
+Create your Fly app:
+
+```sh
+fly apps create
+```
+
+Attach Consul for LiteFS:
+
+```sh
+fly consul attach
+```
+
+Deploy your app:
+
+```sh
+fly deploy
+```
+
+Before using GitHub Actions, you'll need to add an [Actions secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions) named `FLY_API_TOKEN`. You can get a value for this by running:
+
+```sh
+fly tokens create deploy -x 999999h
+```
 
 ---
 
