@@ -85,7 +85,7 @@ fly deploy
 Before using GitHub Actions, you'll need to add an [Actions secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions) named `FLY_API_TOKEN`. You can get a value for this by running:
 
 ```sh
-fly tokens create deploy -x 999999h
+fly tokens org <ORG NAME>
 ```
 
 ---
