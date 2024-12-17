@@ -3,14 +3,14 @@
 	"type": "module",
 	"scripts": {
 		"dev": "bun run db:bootstrap; bunx --bun react-router dev --host",
-		"build": "bun run scripts/build.ts",
-		"start": "NODE_ENV=production bun run server.ts",
+		"build": "bun run ./scripts/build.ts",
+		"start": "NODE_ENV=production bun run ./scripts/start.ts",
 		"db:gui": "drizzle-kit studio",
-		"db:bootstrap": "bun run scripts/db.bootstrap.ts",
+		"db:bootstrap": "bun run ./scripts/db.bootstrap.ts",
 		"db:generate": "bunx --bun drizzle-kit generate",
 		"db:migrate": "bunx --bun drizzle-kit migrate",
-		"format": "bunx biome format --write .",
-		"lint": "bunx biome lint --write --unsafe .",
+		"fmt": "bunx biome format --write .",
+		"lint": "bunx biome lint --write .",
 		"typecheck": "bunx --bun react-router typegen && bunx --bun tsc"
 	},
 	"dependencies": {
@@ -41,5 +41,6 @@
 		"typescript": "^5.7.2",
 		"vite": "^5.4.11",
 		"vite-tsconfig-paths": "^5.1.4"
-	}
+	},
+	"trustedDependencies": ["@biomejs/biome"]
 }

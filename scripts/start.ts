@@ -1,6 +1,6 @@
-import server from "./build/server/index";
+import server from "../build/server/index";
 
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV !== "production") {
 	console.error("Must be run in production.");
 	process.exit(1);
 }
