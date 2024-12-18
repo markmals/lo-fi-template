@@ -5,7 +5,8 @@
 		"app/**/.server/**/*",
 		"app/**/.client/**/*",
 		"database/**/*",
-		"server/**/*"
+		"server/**/*",
+		"scripts/**/*"
 	],
 	"mdx": {
 		"checkMdx": true
@@ -14,7 +15,7 @@
 		"composite": true,
 		"strict": true,
 		"lib": ["DOM", "DOM.Iterable", "ES2022"],
-		"types": ["node", "bun", "vite/client"],
+		"types": ["node", "vite/client"],
 		"target": "ES2022",
 		"module": "ES2022",
 		"moduleResolution": "bundler",

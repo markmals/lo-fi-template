@@ -1,5 +1,5 @@
-import { $ } from "bun";
+import { $ } from "zx";
 
 export async function runMigrations() {
-	await $`bun run db:migrate`;
+	await $`npm run db:migrate`;
 }

@@ -1,25 +1,25 @@
-{
-	"version": "0.2.0",
-	"configurations": [
-		{
-			"type": "bun",
-			"request": "launch",
-			"name": "Run development server",
-			"cwd": "${workspaceFolder}",
-			"runtime": "bun",
-			"runtimeArgs": ["run", "dev"]
-			// If the debugger should stop on the first line of the program.
-			// "stopOnEntry": false,
-			// If the debugger should be disabled. (for example, breakpoints will not be hit)
-			// "noDebug": false,
-		},
-		{
-			"type": "bun",
-			"request": "attach",
-			"name": "Attach to Bun",
-			// The URL of the WebSocket inspector to attach to.
-			// This value can be retrieved by using `bun --inspect`.
-			"url": "ws://localhost:6499/"
-		}
-	]
-}
+// {
+// 	"version": "0.2.0",
+// 	"configurations": [
+// 		{
+// 			"type": "bun",
+// 			"request": "launch",
+// 			"name": "Run development server",
+// 			"cwd": "${workspaceFolder}",
+// 			"runtime": "bun",
+// 			"runtimeArgs": ["run", "dev"]
+// 			// If the debugger should stop on the first line of the program.
+// 			// "stopOnEntry": false,
+// 			// If the debugger should be disabled. (for example, breakpoints will not be hit)
+// 			// "noDebug": false,
+// 		},
+// 		{
+// 			"type": "bun",
+// 			"request": "attach",
+// 			"name": "Attach to Bun",
+// 			// The URL of the WebSocket inspector to attach to.
+// 			// This value can be retrieved by using `bun --inspect`.
+// 			"url": "ws://localhost:6499/"
+// 		}
+// 	]
+// }

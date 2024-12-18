@@ -1,34 +1,34 @@
-import { Database } from "bun:sqlite";
-import { drizzle } from "drizzle-orm/bun-sqlite";
+import Database from "better-sqlite3";
+import { drizzle } from "drizzle-orm/better-sqlite3";
 import { Hono } from "hono";
-import { serveStatic } from "hono/bun";
-import type { BlankEnv, BlankSchema } from "hono/types";
+import { serveStatic } from "@hono/node-server/serve-static";
 import { reactRouter } from "remix-hono/handler";
-import { DatabaseContext, type Schema } from "~/database/context";
-import { books } from "./api/books";
 import "react-router";
 import invariant from "tiny-invariant";
+import { DatabaseContext, type Schema } from "~/database/context";
 import { runMigrations } from "~/database/migrations";
 import { GuestBook } from "~/database/schema";
+import { books } from "./api/books";
 import { provide } from "./context/context";
 
 invariant(process.env.DATABASE_URL, "Must define DATABASE_URL in .env file");
 
 declare module "react-router" {
-	interface AppLoadContext {
-		VALUE_FROM_HONO: string;
-	}
+    interface AppLoadContext {
+        VALUE_FROM_HONO: string;
+    }
 }
 
 // @ts-expect-error - virtual module provided by React Router at build time
+// eslint-disable-next-line import/no-unresolved
 const BUILD = await import("virtual:react-router/server-build");
 
-const server: Hono<BlankEnv, BlankSchema, "/"> = new Hono();
+const server: Hono = new Hono();
 
-if (import.meta.env.PROD) {
-	// Each time we deploy, we run the database migrations
-	await runMigrations();
-}
+// if (import.meta.env.PROD) {
+//     // Each time we deploy, we run the database migrations
+//     await runMigrations();
+// }
 
 const client = new Database(process.env.DATABASE_URL);
 const db = drizzle<Schema>(client, { schema: { guestBook: GuestBook } });
@@ -38,18 +38,18 @@ server.use(provide(DatabaseContext, db));
 server.route("/api", books);
 
 if (import.meta.env.PROD) {
-	server.use("*", serveStatic({ root: "./build/client" }));
+    server.use("*", serveStatic({ root: "./build/client" }));
 }
 
 server.use(
-	"*",
-	reactRouter({
-		build: BUILD,
-		mode: process.env.NODE_ENV as "production" | "development",
-		getLoadContext: () => ({
-			VALUE_FROM_HONO: "Hello from Hono",
-		}),
-	}),
+    "*",
+    reactRouter({
+        build: BUILD,
+        mode: process.env.NODE_ENV as "production" | "development",
+        getLoadContext: () => ({
+            VALUE_FROM_HONO: "Hello from Hono",
+        }),
+    }),
 );
 
 export default server;
