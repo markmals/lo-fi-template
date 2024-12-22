@@ -19,16 +19,12 @@ declare module "react-router" {
     }
 }
 
-// @ts-expect-error - virtual module provided by React Router at build time
-// eslint-disable-next-line import/no-unresolved
-const BUILD = await import("virtual:react-router/server-build");
-
 const server: Hono = new Hono();
 
-// if (import.meta.env.PROD) {
-//     // Each time we deploy, we run the database migrations
-//     await runMigrations();
-// }
+if (import.meta.env.PROD) {
+    // Each time we deploy, we run the database migrations
+    await runMigrations();
+}
 
 const client = new Database(process.env.DATABASE_URL);
 const db = drizzle<Schema>(client, { schema: { guestBook: GuestBook } });
@@ -44,7 +40,9 @@ if (import.meta.env.PROD) {
 server.use(
     "*",
     reactRouter({
-        build: BUILD,
+        // @ts-expect-error - virtual module provided by React Router at build time
+        // eslint-disable-next-line import/no-unresolved
+        build: () => import("virtual:react-router/server-build"),
         mode: process.env.NODE_ENV as "production" | "development",
         getLoadContext: () => ({
             VALUE_FROM_HONO: "Hello from Hono",
