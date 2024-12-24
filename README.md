@@ -20,17 +20,17 @@ The lowest-friction way to create a web app with great user experience and devel
 Install the dependencies:
 
 ```bash
-bun install
+npm install
 ```
 
 ### Development
 
-Copy `.env.example` to `.env` and provide a `DATABASE_URL` with your database file path. The default is `"./database/db.sqlite3"`, which aligns with the Fly.io deployment configurations.
+Copy `.env.example` to `.env` and provide a `DATABASE_URL` with your database file path. The default is `"./src/database/db.sqlite3"`, which aligns with the Fly.io deployment configurations.
 
 Start the development server:
 
 ```bash
-bun run dev
+npm run dev
 ```
 
 Your application will be available at `http://localhost:4321`.
@@ -40,7 +40,7 @@ Your application will be available at `http://localhost:4321`.
 Create a production build:
 
 ```bash
-bun run build
+npm run build
 ```
 
 ## Styling
