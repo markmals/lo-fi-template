@@ -1,5 +1,5 @@
 import { serve } from "@hono/node-server";
-import server from "../build/server/index.js";
+import server from "../../build/server/index.js";
 
 if (process.env.NODE_ENV !== "production") {
     console.error("Must be run in production.");

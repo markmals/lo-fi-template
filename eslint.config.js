@@ -1,17 +1,17 @@
-import js from "@eslint/js"
-import importPlugin from "eslint-plugin-import"
-import globals from "globals"
+import js from "@eslint/js";
+import importPlugin from "eslint-plugin-import";
+import globals from "globals";
 
-import typescriptPlugin from "@typescript-eslint/eslint-plugin"
-import tsParser from "@typescript-eslint/parser"
+import typescriptPlugin from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
 
-import jsxA11y from "eslint-plugin-jsx-a11y"
-import react from "eslint-plugin-react"
-import reactCompiler from "eslint-plugin-react-compiler"
-import reactHooks from "eslint-plugin-react-hooks"
-import reactRefresh from "eslint-plugin-react-refresh"
+import jsxA11y from "eslint-plugin-jsx-a11y";
+import react from "eslint-plugin-react";
+import reactCompiler from "eslint-plugin-react-compiler";
+import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
 
-import casePolice from "eslint-plugin-case-police"
+import casePolice from "eslint-plugin-case-police";
 
 /** @type {import("eslint").Linter.Config[]} */
 export default [
@@ -52,7 +52,7 @@ export default [
             "import/resolver": {
                 typescript: {
                     alwaysTryTypes: true,
-                    project: "tsconfig.json", // Ensure tsconfig.json is at this path
+                    project: "tsconfig.json",
                 },
                 node: {
                     extensions: [".js", ".jsx", ".ts", ".tsx"],
@@ -159,4 +159,4 @@ export default [
             },
         },
     },
-]
+];

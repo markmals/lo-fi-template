@@ -5,11 +5,10 @@ import { serveStatic } from "@hono/node-server/serve-static";
 import { reactRouter } from "remix-hono/handler";
 import "react-router";
 import invariant from "tiny-invariant";
-import { DatabaseContext, type Schema } from "~/database/context";
 import { runMigrations } from "~/database/migrations";
 import { GuestBook } from "~/database/schema";
+import { DatabaseContext, type Schema } from "~/database/context";
 import { books } from "./api/books";
-import { provide } from "./context/context";
 
 invariant(process.env.DATABASE_URL, "Must define DATABASE_URL in .env file");
 
@@ -21,14 +20,14 @@ declare module "react-router" {
 
 const server: Hono = new Hono();
 
-if (import.meta.env.PROD) {
-    // Each time we deploy, we run the database migrations
-    await runMigrations();
-}
+// if (import.meta.env.PROD) {
+//     // Each time we deploy, we run the database migrations
+//     await runMigrations();
+// }
 
 const client = new Database(process.env.DATABASE_URL);
 const db = drizzle<Schema>(client, { schema: { guestBook: GuestBook } });
-server.use(provide(DatabaseContext, db));
+server.use(DatabaseContext.provide(db));
 
 // Add sub-routes here
 server.route("/api", books);

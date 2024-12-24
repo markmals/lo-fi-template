@@ -69,7 +69,7 @@
     "files.exclude": {
         "**/.DS_Store": true,
         // "database/app.db*": true,
-        // "build": true,
+        "build": true,
         ".react-router": true
     },
 

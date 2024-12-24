@@ -7,7 +7,7 @@ import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { reactCompiler } from "./react-compiler.plugin";
 
-const SERVER_ENTRY = "./server/index.ts";
+const SERVER_ENTRY = "./src/server/index.ts";
 
 export default defineConfig(({ isSsrBuild }) => ({
     plugins: [
@@ -17,7 +17,7 @@ export default defineConfig(({ isSsrBuild }) => ({
         honoDevServer({
             entry: SERVER_ENTRY,
             adapter: nodeAdapter,
-            exclude: [...defaultOptions.exclude, "/assets/**", "/app/**"],
+            exclude: [...defaultOptions.exclude, "/assets/**", "/src/**"],
             injectClientScript: false,
         }),
         tsconfigPaths(),
@@ -28,5 +28,6 @@ export default defineConfig(({ isSsrBuild }) => ({
     },
     server: {
         port: Number.parseInt(process.env.PORT || "4321"),
+        // fs: { allow: ["src/app"] },
     },
 }));
