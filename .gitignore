@@ -10,7 +10,7 @@
 .output
 
 # Database
-database/db.sqlite3
-database/db.sqlite3-shm
-database/db.sqlite3-pos
-database/db.sqlite3-wal
+src/database/db.sqlite3
+src/database/db.sqlite3-shm
+src/database/db.sqlite3-pos
+src/database/db.sqlite3-wal
