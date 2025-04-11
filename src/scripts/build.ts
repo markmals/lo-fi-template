@@ -1,16 +1,15 @@
 import oxc from "oxc-transform";
-import { $ } from "zx";
-import fs from "node:fs/promises";
+import $ from "@david/dax";
 
 // Run the react-router build command
-await $`NODE_ENV=production npx react-router build`;
+await $`NODE_ENV=production deno run -A ./node_modules/.bin/react-router build`;
 
 // Generate TypeScript declaration file
-const serverEntry = await fs.readFile("./src/server/index.ts", "utf-8");
+const serverEntry = await Deno.readTextFile("./src/server/index.ts");
 const { code, errors } = oxc.isolatedDeclaration("index.ts", serverEntry);
 
 if (errors.length > 0) {
-    throw new Error(`Failed to generate declaration file: ${JSON.stringify(errors)}`);
+	throw new Error(`Failed to generate declaration file: ${JSON.stringify(errors)}`);
 }
 
-await fs.writeFile("./build/server/index.d.ts", code);
+await Deno.writeTextFile("./build/server/index.d.ts", code);

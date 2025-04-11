@@ -1,5 +1,5 @@
-import { $ } from "zx";
+import $ from "@david/dax";
 
 export async function runMigrations() {
-	await $`npm run db:migrate`;
+	await $`deno task db:migrate`;
 }

@@ -1,5 +1,5 @@
-import { defineConfig } from "./react-router.plugin";
+import type { Config } from "@react-router/dev/config";
 
-export default defineConfig({
-    appDirectory: "src/app",
-});
+export default {
+	appDirectory: "src/app",
+} satisfies Config;
