@@ -11,6 +11,13 @@ import type { PropsWithChildren } from "react";
 import type { Route } from "./+types/root.ts";
 import stylesheet from "./styles/index.css?url";
 
+// import { runMigrations } from "$db/migrations.ts";
+
+// if (import.meta.env.PROD) {
+// 	// Each time we deploy, we run the database migrations
+// 	await runMigrations();
+// }
+
 export const links: Route.LinksFunction = () => [
 	{ rel: "preconnect", href: "https://fonts.googleapis.com" },
 	{

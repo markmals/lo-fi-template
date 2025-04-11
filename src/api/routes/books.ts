@@ -1,6 +1,7 @@
 import { Hono } from "hono";
+import type { ReactRouterBindings } from "$api";
 
-const books = new Hono().basePath("/books");
+const books = new Hono<ReactRouterBindings>().basePath("/books");
 
 books.get("/", c => c.text("List Books")); // GET /api
 books.get("/:id", c => {

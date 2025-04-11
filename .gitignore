@@ -14,3 +14,6 @@ src/database/db.sqlite3
 src/database/db.sqlite3-shm
 src/database/db.sqlite3-pos
 src/database/db.sqlite3-wal
+
+# npm files
+package-lock.json

@@ -1,12 +1,9 @@
-import { GuestBook } from "~/database/schema.ts";
-import { Context } from "../../../server/context/context.ts";
-import { DatabaseContext } from "~/database/context.ts";
-// FIXME: Types get generated incorrectly by default
-// Need to add Deno file extensions (.ts and .tsx instead of .js)
+import { GuestBook } from "$db/schema.ts";
+import { db } from "$db";
 import type { Route } from "./+types/route.ts";
 import { Welcome } from "./Welcome.tsx";
 
-export function meta({}: Route.MetaArgs) {
+export function meta() {
 	return [
 		{ title: "New React Router App" },
 		{ name: "description", content: "Welcome to React Router!" },
@@ -27,7 +24,6 @@ export async function action({ request }: Route.ActionArgs) {
 		return { guestBookError: "Name and email are required" };
 	}
 
-	const db = Context.get(DatabaseContext);
 	try {
 		await db.insert(GuestBook).values({ name, email });
 	} catch {
@@ -35,9 +31,7 @@ export async function action({ request }: Route.ActionArgs) {
 	}
 }
 
-export async function loader({ context }: Route.LoaderArgs) {
-	const db = Context.get(DatabaseContext);
-
+export async function loader() {
 	const guestBook = await db
 		.select({
 			id: GuestBook.id,
@@ -47,7 +41,7 @@ export async function loader({ context }: Route.LoaderArgs) {
 
 	return {
 		guestBook,
-		message: context.VALUE_FROM_HONO,
+		message: "Hello, World", // context.VALUE_FROM_HONO,
 	};
 }
 
