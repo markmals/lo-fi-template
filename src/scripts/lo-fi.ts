@@ -1,4 +1,3 @@
-// import { parseArgs } from "@std/cli";
 import "jsr:@std/dotenv/load";
 import $ from "@david/dax";
 import { assert } from "@std/assert";
@@ -14,11 +13,6 @@ const database = {
 
 			// Create new empty database file
 			await Deno.writeTextFile(DATABASE_URL, "");
-
-			// Create necessary tables using drizzle-kit push
-			// FIXME: Doesn't work in Deno with "better-sqlite3" nor "@libsql/client"
-			// await $`deno run -A npm:drizzle-kit push`;
-			await $`npx drizzle-kit push`;
 
 			console.log("Database bootstrapped successfully");
 		} catch (error) {
@@ -67,17 +61,17 @@ switch (subcommand) {
 		await tools.typecheck();
 		break;
 	}
-	case "db": {
-		const dbCommand = Deno.args[0];
-		if (dbCommand !== "bootstrap") {
-			console.error("[ERROR]: Only bootstraping database is currently supported:");
-			console.info("$ deno run -A ./src/srcipts/lo-fi.ts db bootstrap");
-			break;
-		}
+	// case "db": {
+	// 	const dbCommand = Deno.args[0];
+	// 	if (dbCommand !== "bootstrap") {
+	// 		console.error("[ERROR]: Only bootstraping database is currently supported:");
+	// 		console.info("$ deno run -A ./src/srcipts/lo-fi.ts db bootstrap");
+	// 		break;
+	// 	}
 
-		await database.bootstrap();
-		break;
-	}
+	// 	await database.bootstrap();
+	// 	break;
+	// }
 	case "dev": {
 		// Always bootstrap the database before starting the dev server
 		await database.bootstrap();

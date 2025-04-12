@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { books } from "./routes/books.ts";
+import { guestBook } from "./routes/guest-book.ts";
 import type { AppLoadContext } from "react-router";
 
 export type ReactRouterBindings = { Bindings: { context: AppLoadContext } };
@@ -7,6 +7,6 @@ export type ReactRouterBindings = { Bindings: { context: AppLoadContext } };
 const api = new Hono<ReactRouterBindings>().basePath("/api");
 
 // Sub-routes:
-api.route("/", books);
+api.route("/", guestBook);
 
 export { api };
