@@ -1,20 +1,28 @@
 {
 	"nodeModulesDir": "auto",
-	"unstable": [
-		"kv",
-		// FIXME: Needed for React Router's type generation
-		"sloppy-imports"
-	],
+	"unstable": ["kv", "sloppy-imports"],
 	"tasks": {
-		"dev": "deno run -A ./src/scripts/lo-fi.ts dev",
-		"build": "deno run -A ./src/scripts/lo-fi.ts build",
-		"start": "deno run -A ./src/scripts/lo-fi.ts serve",
-		"db:gui": "deno run -A npm:drizzle-kit studio",
-		"db:bootstrap": "deno run -A ./src/scripts/lo-fi.ts db bootstrap",
-		"db:generate": "deno run -A npm:drizzle-kit generate",
-		"db:migrate": "deno run -A npm:drizzle-kit migrate",
-		"fmt": "deno run -A ./src/scripts/lo-fi.ts fmt",
-		"typecheck": "deno run -A ./src/scripts/lo-fi.ts typecheck"
+		// TODO: Narrow down the permissions on these commands to only the required permissions
+		"dev": {
+			"command": "deno run -A npm:vite dev --host",
+			"dependencies": ["db-bootstrap"]
+		},
+		"build": "NODE_ENV=production deno run -A npm:vite build",
+		"start": {
+			"command": "deno run -A ./src/scripts/start.ts",
+			"dependencies": ["build"]
+		},
+
+		"db-bootstrap": "deno run -A ./src/scripts/db-bootstrap.ts",
+
+		"fmt": "deno run -A npm:@biomejs/biome check --write --unsafe --assists-enabled=true .",
+		// FIXME: This errors when tring to use `deno run -A npm:react-router dev` directly
+		// Failed resolving binary export. './node_modules/.deno/react-router@7.5.0/node_modules/react-router/package.json' did not have a bin property
+		"typegen": "deno run -A ./node_modules/.bin/react-router typegen",
+		"typecheck": {
+			"command": "deno check ./src",
+			"dependencies": ["typegen"]
+		}
 	},
 	"imports": {
 		// Path aliases
