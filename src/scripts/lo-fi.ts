@@ -24,13 +24,10 @@ const database = {
 
 const app = {
 	async build() {
-		// Run the react-router build command
-		await $`NODE_ENV=production deno run -A ./node_modules/.bin/react-router build`;
+		await $`NODE_ENV=production deno run -A npm:vite build`;
 	},
 	async startDevServer() {
-		// FIXME: This errors when tring to use `deno run -A npm:react-router dev` directly
-		// Failed resolving binary export. './node_modules/.deno/react-router@7.5.0/node_modules/react-router/package.json' did not have a bin property
-		await $`deno run -A ./node_modules/.bin/react-router dev --host`;
+		await $`deno run -A npm:vite dev --host`;
 	},
 	async startServer() {
 		await $`deno run -A ./src/scripts/start.ts`;
@@ -43,6 +40,9 @@ const tools = {
 	},
 	async typecheck() {
 		// Generate React Router types before typechecking
+
+		// FIXME: This errors when tring to use `deno run -A npm:react-router dev` directly
+		// Failed resolving binary export. './node_modules/.deno/react-router@7.5.0/node_modules/react-router/package.json' did not have a bin property
 		await $`deno run -A ./node_modules/.bin/react-router typegen`;
 		await $`deno check ./src`;
 	},
@@ -61,17 +61,17 @@ switch (subcommand) {
 		await tools.typecheck();
 		break;
 	}
-	// case "db": {
-	// 	const dbCommand = Deno.args[0];
-	// 	if (dbCommand !== "bootstrap") {
-	// 		console.error("[ERROR]: Only bootstraping database is currently supported:");
-	// 		console.info("$ deno run -A ./src/srcipts/lo-fi.ts db bootstrap");
-	// 		break;
-	// 	}
+	case "db": {
+		const dbCommand = Deno.args[0];
+		if (dbCommand !== "bootstrap") {
+			console.error("[ERROR]: Only bootstraping database is currently supported:");
+			console.info("$ deno run -A ./src/srcipts/lo-fi.ts db bootstrap");
+			break;
+		}
 
-	// 	await database.bootstrap();
-	// 	break;
-	// }
+		await database.bootstrap();
+		break;
+	}
 	case "dev": {
 		// Always bootstrap the database before starting the dev server
 		await database.bootstrap();
