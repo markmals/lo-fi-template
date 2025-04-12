@@ -7,9 +7,9 @@
 			"command": "deno run -A npm:vite dev --host",
 			"dependencies": ["db-bootstrap"]
 		},
-		"build": "NODE_ENV=production deno run -A npm:vite build",
-		"start": {
-			"command": "deno run -A ./src/scripts/start.ts",
+		"build": "deno run -A ./src/scripts/build.ts",
+		"serve": {
+			"command": "deno run -A ./src/scripts/serve.ts",
 			"dependencies": ["build"]
 		},
 
@@ -39,6 +39,8 @@
 		// Should be able to detect RR7 runtime by the presence of deno.json (or from deno.json's "imports")
 		"@react-router/node": "npm:@react-router/node@^7.5.0",
 		"@std/assert": "jsr:@std/assert@^1.0.12",
+		"@std/http": "jsr:@std/http@^1.0.14",
+		"@std/path": "jsr:@std/path@^1.0.8",
 		"drizzle-kit": "npm:drizzle-kit@^0.30.1",
 		"drizzle-orm": "npm:drizzle-orm@~0.36.3",
 		"hono": "npm:hono@^4.7.6",
