@@ -1,19 +1,26 @@
 {
 	"nodeModulesDir": "auto",
-	"unstable": [
-		// FIXME: Needed for React Router's type generation
-		"sloppy-imports"
-	],
+	"unstable": ["sloppy-imports"],
 	"tasks": {
-		"dev": "deno run -A ./src/scripts/lo-fi.ts dev",
-		"build": "deno run -A ./src/scripts/lo-fi.ts build",
-		"start": "deno run -A ./src/scripts/lo-fi.ts serve",
-		"db:gui": "deno run -A npm:drizzle-kit studio",
-		"db:bootstrap": "deno run -A ./src/scripts/lo-fi.ts db bootstrap",
-		"db:generate": "deno run -A npm:drizzle-kit generate",
-		"db:migrate": "deno run -A npm:drizzle-kit migrate",
-		"fmt": "deno run -A ./src/scripts/lo-fi.ts fmt",
-		"typecheck": "deno run -A ./src/scripts/lo-fi.ts typecheck"
+		// TODO: Narrow down the permissions on these commands to only the required permissions
+		"dev": {
+			"command": "deno run -A npm:vite dev --host",
+			"dependencies": ["db-bootstrap"]
+		},
+		"build": "deno run -A ./src/scripts/build.ts",
+		"serve": {
+			"command": "deno run -A ./src/scripts/serve.ts",
+			"dependencies": ["build"]
+		},
+
+		"db-bootstrap": "deno run -A ./src/scripts/db-bootstrap.ts",
+
+		"fmt": "deno run -A npm:@biomejs/biome check --write --unsafe --assists-enabled=true .",
+		"typegen": "deno run -A ./node_modules/.bin/react-router typegen",
+		"typecheck": {
+			"command": "deno check ./src",
+			"dependencies": ["typegen"]
+		}
 	},
 	"imports": {
 		// Path aliases
@@ -21,13 +28,13 @@
 		"$api/": "./src/api/",
 		"$db": "./src/database/index.ts",
 		"$db/": "./src/database/",
+		"@std/http": "jsr:@std/http@^1.0.14",
+		"@std/path": "jsr:@std/path@^1.0.8",
 		"~/": "./src/app/",
 
 		// Dependencies
 		"@david/dax": "jsr:@david/dax@^0.42.0",
 		"@react-router/fs-routes": "npm:@react-router/fs-routes@^7.5.0",
-		// FIXME: Need a package.json to detect RR7 runtime
-		// Should be able to detect RR7 runtime by the presence of deno.json (or from deno.json's "imports")
 		"@react-router/node": "npm:@react-router/node@^7.5.0",
 		"@std/assert": "jsr:@std/assert@^1.0.12",
 		"drizzle-kit": "npm:drizzle-kit@^0.30.1",

@@ -6,6 +6,9 @@ import deno from "@deno/vite-plugin";
 
 export default defineConfig({
 	plugins: [deno(), reactRouter(), tailwindcss()],
+	build: {
+		target: "ESNext",
+	},
 	server: {
 		port: Number.parseInt(Deno.env.get("PORT") || "4321"),
 	},
