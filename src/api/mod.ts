@@ -1,6 +1,6 @@
 import { Hono } from "hono";
-import { books } from "./routes/books.ts";
 import type { AppLoadContext } from "react-router";
+import { books } from "./routes/books.ts";
 
 export type ReactRouterBindings = { Bindings: { context: AppLoadContext } };
 

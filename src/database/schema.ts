@@ -1,5 +1,5 @@
-import { createTable } from "./node-sqlite.ts";
 import { integer, text } from "drizzle-orm/sqlite-core";
+import { createTable } from "./node-sqlite.ts";
 
 export const GuestBook = createTable("guest_book", {
 	id: integer().primaryKey(),

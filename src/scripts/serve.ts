@@ -1,7 +1,7 @@
 import "jsr:@std/dotenv/load";
 import { serveFile } from "@std/http/file-server";
 import { join } from "@std/path/join";
-import { createRequestHandler, type ServerBuild } from "react-router";
+import { type ServerBuild, createRequestHandler } from "react-router";
 
 const handler = await createDenoRequestHandler(
 	// @ts-expect-error React Router server build is not typed

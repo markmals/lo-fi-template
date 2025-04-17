@@ -1,5 +1,5 @@
-import { assert } from "@std/assert";
 import { DatabaseSync } from "node:sqlite";
+import { assert } from "@std/assert";
 import { createDrizzle } from "./node-sqlite.ts";
 import { GuestBook } from "./schema.ts";
 

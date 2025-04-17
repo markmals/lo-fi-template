@@ -1,8 +1,8 @@
 import "jsr:@std/dotenv/load";
-import { defineConfig } from "vite";
+import deno from "@deno/vite-plugin";
 import { reactRouter } from "@react-router/dev/vite";
 import tailwindcss from "@tailwindcss/vite";
-import deno from "@deno/vite-plugin";
+import { defineConfig } from "vite";
 
 export default defineConfig({
 	plugins: [deno(), reactRouter(), tailwindcss()],

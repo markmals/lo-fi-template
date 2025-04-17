@@ -1,5 +1,5 @@
+import type { ReactRouterBindings } from "../mod.ts";
 import { Hono } from "hono";
-import type { ReactRouterBindings } from "$api";
 
 const books = new Hono<ReactRouterBindings>().basePath("/books");
 

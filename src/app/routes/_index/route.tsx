@@ -1,5 +1,5 @@
+import { db } from "$db/mod.ts";
 import { GuestBook } from "$db/schema.ts";
-import { db } from "$db";
 import type { Route } from "./+types/route.ts";
 import { Welcome } from "./Welcome.tsx";
 

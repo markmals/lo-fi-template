@@ -1,6 +1,6 @@
 import "jsr:@std/dotenv/load";
-import { assert } from "@std/assert";
 import $ from "@david/dax";
+import { assert } from "@std/assert";
 
 const DATABASE_URL = Deno.env.get("DATABASE_URL");
 assert(DATABASE_URL, "Must define DATABASE_URL in .env file");

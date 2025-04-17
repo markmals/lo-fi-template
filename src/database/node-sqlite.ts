@@ -1,7 +1,7 @@
-import type { DrizzleConfig } from "drizzle-orm";
-import { sqliteTable, type SQLiteTableFn } from "drizzle-orm/sqlite-core";
-import { drizzle, type SqliteRemoteDatabase } from "drizzle-orm/sqlite-proxy";
 import type { DatabaseSync } from "node:sqlite";
+import type { DrizzleConfig } from "drizzle-orm";
+import { type SQLiteTableFn, sqliteTable } from "drizzle-orm/sqlite-core";
+import { type SqliteRemoteDatabase, drizzle } from "drizzle-orm/sqlite-proxy";
 
 /**
  * Returns a new object with entries sorted by key.
