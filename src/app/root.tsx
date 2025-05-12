@@ -1,13 +1,12 @@
+import type { PropsWithChildren } from "react";
 import {
+	isRouteErrorResponse,
 	Links,
 	Meta,
 	Outlet,
 	Scripts,
 	ScrollRestoration,
-	isRouteErrorResponse,
 } from "react-router";
-
-import type { PropsWithChildren } from "react";
 import type { Route } from "./+types/root.ts";
 import stylesheet from "./styles/index.css?url";
 

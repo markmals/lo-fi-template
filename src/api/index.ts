@@ -1,6 +1,6 @@
 import { Hono } from "hono";
-import { guestBook } from "./routes/guest-book.ts";
 import type { AppLoadContext } from "react-router";
+import { guestBook } from "./routes/guest-book.ts";
 
 export type ReactRouterBindings = { Bindings: { context: AppLoadContext } };
 

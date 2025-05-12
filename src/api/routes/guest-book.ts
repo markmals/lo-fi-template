@@ -1,7 +1,7 @@
-import { Hono } from "hono";
 import type { ReactRouterBindings } from "$api";
 import { db } from "$db";
 import { GUEST_BOOK, type GuestBook } from "$db/schema.ts";
+import { Hono } from "hono";
 
 const guestBook = new Hono<ReactRouterBindings>().basePath("/guest-book");
 

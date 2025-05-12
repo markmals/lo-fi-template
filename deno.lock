@@ -25,6 +25,8 @@
     "jsr:@std/path@^1.0.8": "1.0.8",
     "jsr:@std/streams@0.221": "0.221.0",
     "jsr:@std/streams@^1.0.9": "1.0.9",
+    "npm:@biomejs/biome@*": "1.9.4",
+    "npm:@biomejs/biome@2.0.0-beta.3": "2.0.0-beta.3",
     "npm:@biomejs/biome@^2.0.0-beta.3": "2.0.0-beta.3",
     "npm:@deno/vite-plugin@^1.0.4": "1.0.4_vite@6.2.6__@types+node@22.14.1_@types+node@22.14.1",
     "npm:@react-router/dev@^7.6.0": "7.6.0_react-router@7.6.0__react@19.1.0__react-dom@19.1.0___react@19.1.0_vite@6.2.6__@types+node@22.14.1_@babel+core@7.27.1_react@19.1.0_react-dom@19.1.0__react@19.1.0_@types+node@22.14.1",
@@ -384,6 +386,21 @@
         "@babel/helper-string-parser",
         "@babel/helper-validator-identifier"
       ]
+    },
+    "@biomejs/biome@1.9.4": {
+      "integrity": "sha512-1rkd7G70+o9KkTn5KLmDYXihGoTaIGO9PIIN2ZB7UJxFrWw04CZHPYiMRjYsaDvVV7hP1dYNRLxSANLaBFGpog==",
+      "optionalDependencies": [
+        "@biomejs/cli-darwin-arm64@1.9.4",
+        "@biomejs/cli-darwin-x64@1.9.4",
+        "@biomejs/cli-linux-arm64@1.9.4",
+        "@biomejs/cli-linux-arm64-musl@1.9.4",
+        "@biomejs/cli-linux-x64@1.9.4",
+        "@biomejs/cli-linux-x64-musl@1.9.4",
+        "@biomejs/cli-win32-arm64@1.9.4",
+        "@biomejs/cli-win32-x64@1.9.4"
+      ],
+      "scripts": true,
+      "bin": true
     },
     "@biomejs/biome@2.0.0-beta.3": {
       "integrity": "sha512-KKvtP0iapIpmOpoljEITOcG7IPOn2HVUJxZOn4ULJbUsOlPEJcrKI0BwKZ/E1PeflxjaSfcKUxHhdB7bjBBPvg==",

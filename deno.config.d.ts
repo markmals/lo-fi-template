@@ -391,11 +391,7 @@ export interface Fmt {
  *
  * The position of the body in single body blocks in JavaScript and TypeScript.
  */
-export type BracePositionEnum =
-	| "maintain"
-	| "sameLine"
-	| "nextLine"
-	| "sameLineUnlessHanging";
+export type BracePositionEnum = "maintain" | "sameLine" | "nextLine" | "sameLineUnlessHanging";
 
 /**
  * If the end angle bracket of a jsx open element or self closing element should be on the
@@ -472,11 +468,7 @@ export type TypeLiteralSeparatorKind = "comma" | "semiColon";
  * Whether to use braces for if statements, for statements, and while statements in
  * JavaScript and TypeScript.
  */
-export type UseBraces =
-	| "maintain"
-	| "whenNotSingleLine"
-	| "always"
-	| "preferNone";
+export type UseBraces = "maintain" | "whenNotSingleLine" | "always" | "preferNone";
 
 /**
  * Configuration for linter

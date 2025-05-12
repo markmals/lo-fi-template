@@ -1,5 +1,5 @@
 import { db } from "$db";
-import { getId, GUEST_BOOK, type GuestBook } from "$db/schema.ts";
+import { GUEST_BOOK, type GuestBook, getId } from "$db/schema.ts";
 import type { Route } from "./+types/route.ts";
 import { Welcome } from "./Welcome.tsx";
 

@@ -1,11 +1,13 @@
-import type { Plugin } from "vite";
 import { parse } from "@std/jsonc";
+import { dirname, join } from "@std/path";
+import type { Plugin } from "vite";
 import type { DenoConfig } from "./deno.config.d.ts";
-import { join, dirname } from "@std/path";
 
 export function denoAliases({
 	configFile: filePath = "deno.jsonc",
-}: { configFile?: string } = {}): Plugin {
+}: {
+	configFile?: string;
+} = {}): Plugin {
 	return {
 		name: "deno-aliases-plugin",
 		async config() {
