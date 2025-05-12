@@ -1,3 +1,6 @@
+/** biome-ignore-all lint/suspicious/noExplicitAny: generated file */
+/** biome-ignore-all lint/complexity/noBannedTypes: generated file */
+
 /**
  * A JSON representation of a Deno configuration file.
  */

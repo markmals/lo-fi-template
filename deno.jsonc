@@ -3,7 +3,6 @@
 	"nodeModulesDir": "auto",
 	"unstable": ["kv", "sloppy-imports"],
 	"tasks": {
-		// TODO: Narrow down the permissions on these commands to only the required permissions
 		"dev": {
 			"command": "deno run -A npm:vite dev --host",
 			"dependencies": ["db-bootstrap"]
