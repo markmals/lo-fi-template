@@ -17,7 +17,8 @@
     "jsr:@std/path@^1.0.8": "1.0.9",
     "jsr:@std/path@^1.0.9": "1.0.9",
     "jsr:@std/streams@^1.0.9": "1.0.9",
-    "npm:@biomejs/biome@^2.0.0-beta.3": "2.0.0-beta.5",
+    "npm:@biomejs/biome@*": "1.9.4",
+    "npm:@biomejs/biome@^2.0.0-beta.5": "2.0.0-beta.5",
     "npm:@deno/vite-plugin@^1.0.4": "1.0.4_vite@6.3.5__@types+node@22.15.23__picomatch@4.0.2_@types+node@22.15.23",
     "npm:@react-router/dev@*": "7.6.1_@react-router+serve@7.6.1__react-router@7.6.1___react@19.1.0___react-dom@19.1.0____react@19.1.0__express@4.21.2__react@19.1.0__react-dom@19.1.0___react@19.1.0_react-router@7.6.1__react@19.1.0__react-dom@19.1.0___react@19.1.0_vite@6.3.5__@types+node@22.15.23__picomatch@4.0.2_@babel+core@7.27.3_react@19.1.0_react-dom@19.1.0__react@19.1.0_@types+node@22.15.23",
     "npm:@react-router/dev@7.6.1": "7.6.1_@react-router+serve@7.6.1__react-router@7.6.1___react@19.1.0___react-dom@19.1.0____react@19.1.0__express@4.21.2__react@19.1.0__react-dom@19.1.0___react@19.1.0_react-router@7.6.1__react@19.1.0__react-dom@19.1.0___react@19.1.0_vite@6.3.5__@types+node@22.15.23__picomatch@4.0.2_@babel+core@7.27.3_react@19.1.0_react-dom@19.1.0__react@19.1.0_@types+node@22.15.23",
@@ -323,32 +324,67 @@
         "@babel/helper-validator-identifier"
       ]
     },
+    "@biomejs/biome@1.9.4": {
+      "integrity": "sha512-1rkd7G70+o9KkTn5KLmDYXihGoTaIGO9PIIN2ZB7UJxFrWw04CZHPYiMRjYsaDvVV7hP1dYNRLxSANLaBFGpog==",
+      "optionalDependencies": [
+        "@biomejs/cli-darwin-arm64@1.9.4",
+        "@biomejs/cli-darwin-x64@1.9.4",
+        "@biomejs/cli-linux-arm64@1.9.4",
+        "@biomejs/cli-linux-arm64-musl@1.9.4",
+        "@biomejs/cli-linux-x64@1.9.4",
+        "@biomejs/cli-linux-x64-musl@1.9.4",
+        "@biomejs/cli-win32-arm64@1.9.4",
+        "@biomejs/cli-win32-x64@1.9.4"
+      ],
+      "scripts": true,
+      "bin": true
+    },
     "@biomejs/biome@2.0.0-beta.5": {
       "integrity": "sha512-1ldO4AepieVvg4aLi1ubZkA7NsefQT2UTNssbJbDiQTGem8kCHx/PZCwLxIR6UzFpGIjh0xsDzivyVvhnmqmuA==",
       "optionalDependencies": [
-        "@biomejs/cli-darwin-arm64",
-        "@biomejs/cli-darwin-x64",
-        "@biomejs/cli-linux-arm64",
-        "@biomejs/cli-linux-arm64-musl",
-        "@biomejs/cli-linux-x64",
-        "@biomejs/cli-linux-x64-musl",
-        "@biomejs/cli-win32-arm64",
-        "@biomejs/cli-win32-x64"
+        "@biomejs/cli-darwin-arm64@2.0.0-beta.5",
+        "@biomejs/cli-darwin-x64@2.0.0-beta.5",
+        "@biomejs/cli-linux-arm64@2.0.0-beta.5",
+        "@biomejs/cli-linux-arm64-musl@2.0.0-beta.5",
+        "@biomejs/cli-linux-x64@2.0.0-beta.5",
+        "@biomejs/cli-linux-x64-musl@2.0.0-beta.5",
+        "@biomejs/cli-win32-arm64@2.0.0-beta.5",
+        "@biomejs/cli-win32-x64@2.0.0-beta.5"
       ],
       "bin": true
+    },
+    "@biomejs/cli-darwin-arm64@1.9.4": {
+      "integrity": "sha512-bFBsPWrNvkdKrNCYeAp+xo2HecOGPAy9WyNyB/jKnnedgzl4W4Hb9ZMzYNbf8dMCGmUdSavlYHiR01QaYR58cw==",
+      "os": ["darwin"],
+      "cpu": ["arm64"]
     },
     "@biomejs/cli-darwin-arm64@2.0.0-beta.5": {
       "integrity": "sha512-pnJiaoDpwGo+ctGkMu4POcO8jgOgCErBdYbhutr+K9rxxJS+TlHLr0LR91GCEWbGV2O1oyZRFQcW21rYFoak4w==",
       "os": ["darwin"],
       "cpu": ["arm64"]
     },
+    "@biomejs/cli-darwin-x64@1.9.4": {
+      "integrity": "sha512-ngYBh/+bEedqkSevPVhLP4QfVPCpb+4BBe2p7Xs32dBgs7rh9nY2AIYUL6BgLw1JVXV8GlpKmb/hNiuIxfPfZg==",
+      "os": ["darwin"],
+      "cpu": ["x64"]
+    },
     "@biomejs/cli-darwin-x64@2.0.0-beta.5": {
       "integrity": "sha512-WwEZpqcmsNoFpZkUFNQcbZo52WK4hLGQ0vZk3PQ8JlZ55gJsHiyhtv6aem6fVlyVCvZgpsC0sYPLE3VvFVKNAQ==",
       "os": ["darwin"],
       "cpu": ["x64"]
     },
+    "@biomejs/cli-linux-arm64-musl@1.9.4": {
+      "integrity": "sha512-v665Ct9WCRjGa8+kTr0CzApU0+XXtRgwmzIf1SeKSGAv+2scAlW6JR5PMFo6FzqqZ64Po79cKODKf3/AAmECqA==",
+      "os": ["linux"],
+      "cpu": ["arm64"]
+    },
     "@biomejs/cli-linux-arm64-musl@2.0.0-beta.5": {
       "integrity": "sha512-4vxNkYx1uEt211W8hLdXddc7icRHQgYENb72g6uTd/tLVPSBvIwqUAxAOkU+9Ai1E/8R4sWy7HIxREgpuFgbNA==",
+      "os": ["linux"],
+      "cpu": ["arm64"]
+    },
+    "@biomejs/cli-linux-arm64@1.9.4": {
+      "integrity": "sha512-fJIW0+LYujdjUgJJuwesP4EjIBl/N/TcOX3IvIHJQNsAqvV2CHIogsmA94BPG6jZATS4Hi+xv4SkBBQSt1N4/g==",
       "os": ["linux"],
       "cpu": ["arm64"]
     },
@@ -357,8 +393,18 @@
       "os": ["linux"],
       "cpu": ["arm64"]
     },
+    "@biomejs/cli-linux-x64-musl@1.9.4": {
+      "integrity": "sha512-gEhi/jSBhZ2m6wjV530Yy8+fNqG8PAinM3oV7CyO+6c3CEh16Eizm21uHVsyVBEB6RIM8JHIl6AGYCv6Q6Q9Tg==",
+      "os": ["linux"],
+      "cpu": ["x64"]
+    },
     "@biomejs/cli-linux-x64-musl@2.0.0-beta.5": {
       "integrity": "sha512-nUeKGO517GtRCxziVD9les1HiCs2s2/WIVITMN9+9RRuLOko8r+T77E8ZXEmlfLOfOIOeE6z62WITqei3oNccA==",
+      "os": ["linux"],
+      "cpu": ["x64"]
+    },
+    "@biomejs/cli-linux-x64@1.9.4": {
+      "integrity": "sha512-lRCJv/Vi3Vlwmbd6K+oQ0KhLHMAysN8lXoCI7XeHlxaajk06u7G+UsFSO01NAs5iYuWKmVZjmiOzJ0OJmGsMwg==",
       "os": ["linux"],
       "cpu": ["x64"]
     },
@@ -367,10 +413,20 @@
       "os": ["linux"],
       "cpu": ["x64"]
     },
+    "@biomejs/cli-win32-arm64@1.9.4": {
+      "integrity": "sha512-tlbhLk+WXZmgwoIKwHIHEBZUwxml7bRJgk0X2sPyNR3S93cdRq6XulAZRQJ17FYGGzWne0fgrXBKpl7l4M87Hg==",
+      "os": ["win32"],
+      "cpu": ["arm64"]
+    },
     "@biomejs/cli-win32-arm64@2.0.0-beta.5": {
       "integrity": "sha512-YXW6hgbrgBcWQ1SLO69ypWlluPchgQV5C1lTG4xOcBUWdCsfYuQirM64S6Dov7SFPqsMIoFC6LlQRW+n8qAyiA==",
       "os": ["win32"],
       "cpu": ["arm64"]
+    },
+    "@biomejs/cli-win32-x64@1.9.4": {
+      "integrity": "sha512-8Y5wMhVIPaWe6jw2H+KlEm4wP/f7EW3810ZLmDlrEEy5KvBsb9ECEfu/kMWD484ijfQ8+nIi0giMgu9g1UAuuA==",
+      "os": ["win32"],
+      "cpu": ["x64"]
     },
     "@biomejs/cli-win32-x64@2.0.0-beta.5": {
       "integrity": "sha512-N7Yby52BJmvEdst1iMbclE5hxxefboaXKRJLm1tLfBYr4FeuoCe6j8HdiQSwhCRdIUGFFqBLaDXh//LLF6EReA==",
@@ -2126,7 +2182,7 @@
       "jsr:@std/http@^1.0.14",
       "jsr:@std/jsonc@^1.0.2",
       "jsr:@std/path@^1.0.8",
-      "npm:@biomejs/biome@^2.0.0-beta.3",
+      "npm:@biomejs/biome@^2.0.0-beta.5",
       "npm:@deno/vite-plugin@^1.0.4",
       "npm:@react-router/dev@7.6.1",
       "npm:@react-router/fs-routes@^7.6.1",
