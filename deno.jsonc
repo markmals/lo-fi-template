@@ -13,7 +13,11 @@
             "dependencies": ["build"]
         },
         "db-bootstrap": "deno run -A ./src/scripts/db-bootstrap.ts",
-        "fmt": "deno run -A npm:@biomejs/biome@^2.0.0-beta.5 check --write --unsafe --assist-enabled=true .",
+        "fmt": "deno fmt .",
+        "lint": "deno run -A npm:@biomejs/biome@^2.0.0-beta.5 check --write --unsafe --assist-enabled=true .",
+        "clean": {
+            "dependencies": ["fmt", "lint"]
+        },
         "typegen": "deno run -A npm:@react-router/dev typegen",
         "typecheck": {
             "command": "deno check src",

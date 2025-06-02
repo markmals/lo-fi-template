@@ -1,51 +1,50 @@
 name: 🛠️ Build & Deploy to Deno Deploy
 
 on:
-  push:
-    branches:
-      - main
+    push:
+        branches:
+            - main
 
 permissions:
-  contents: read
-  id-token: write   # ✅ required for OIDC login to Deno Deploy
-  deployments: write
+    contents: read
+    id-token: write # ✅ required for OIDC login to Deno Deploy
+    deployments: write
 
 env:
-  # Use the GitHub-repo name as the Deploy project name
-  PROJECT_NAME: ${{ github.event.repository.name }}
+    # Use the GitHub-repo name as the Deploy project name
+    PROJECT_NAME: ${{ github.event.repository.name }}
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+    build-and-deploy:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: 📥 Checkout code
-        uses: actions/checkout@v4
+        steps:
+            - name: 📥 Checkout code
+              uses: actions/checkout@v4
 
-      - name: ⚙️ Setup Deno
-        uses: denoland/setup-deno@v2
-        with:
-          deno-version: v2.x
+            - name: ⚙️ Setup Deno
+              uses: denoland/setup-deno@v2
+              with:
+                  deno-version: v2.x
 
-      - name: 🗄️ Cache Deno modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/deno
-          key: ${{ runner.os }}-deno-${{ hashFiles('deno.json') }}
-          restore-keys: |
-            ${{ runner.os }}-deno-
+            - name: 🗄️ Cache Deno modules
+              uses: actions/cache@v3
+              with:
+                  path: ~/.cache/deno
+                  key: ${{ runner.os }}-deno-${{ hashFiles('deno.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-deno-
 
-      - name: 🚀 Build application
-        run: deno task build
+            - name: 🚀 Build application
+              run: deno task build
 
-      - name: 🧹 Clean any existing node_modules
-        run: rm -rf node_modules
+            - name: 🧹 Clean any existing node_modules
+              run: rm -rf node_modules
 
-      - name: 🌐 Deploy to Deno Deploy
-        uses: denoland/deployctl@v1
-        with:
-          project: ${{ env.PROJECT_NAME }}          # must exist in dash.deno.com
-          entrypoint: ./src/scripts/serve.ts        # dynamic server entry
-          # root defaults to the repo‐root; change if you only want to upload a sub-dir
-          # root: .
-
+            - name: 🌐 Deploy to Deno Deploy
+              uses: denoland/deployctl@v1
+              with:
+                  project: ${{ env.PROJECT_NAME }} # must exist in dash.deno.com
+                  entrypoint: ./src/scripts/serve.ts # dynamic server entry
+# root defaults to the repo‐root; change if you only want to upload a sub-dir
+# root: .

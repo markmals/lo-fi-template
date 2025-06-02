@@ -25,7 +25,8 @@ npm install
 
 ### Development
 
-Copy `.env.example` to `.env` and provide a `DATABASE_URL` with your database file path. The default is `"./src/database/db.sqlite3"`, which aligns with the Fly.io deployment configurations.
+Copy `.env.example` to `.env` and provide a `DATABASE_URL` with your database file path. The default
+is `"./src/database/db.sqlite3"`, which aligns with the Fly.io deployment configurations.
 
 Start the development server:
 
@@ -45,7 +46,8 @@ npm run build
 
 ## Styling
 
-This template comes with [Tailwind CSS](https://tailwindcss.com) already configured for a simple default starting experience.
+This template comes with [Tailwind CSS](https://tailwindcss.com) already configured for a simple
+default starting experience.
 
 ## Deployment
 
@@ -82,7 +84,9 @@ Deploy your app:
 fly deploy
 ```
 
-Before using GitHub Actions, you'll need to add an [Actions secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions) named `FLY_API_TOKEN`. You can get a value for this by running:
+Before using GitHub Actions, you'll need to add an
+[Actions secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
+named `FLY_API_TOKEN`. You can get a value for this by running:
 
 ```sh
 fly tokens org <ORG NAME>

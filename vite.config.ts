@@ -5,17 +5,17 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-	plugins: [deno(), reactRouter(), tailwindcss()],
-	environments: {
-		ssr: {
-			build: {
-				target: "ESNext",
-			},
-			resolve: {
-				conditions: ["deno"],
-				externalConditions: ["deno"],
-			},
-		},
-	},
-	server: { port: Number.parseInt(Deno.env.get("PORT") || "1612") },
+    plugins: [deno(), reactRouter(), tailwindcss()],
+    environments: {
+        ssr: {
+            build: {
+                target: "ESNext",
+            },
+            resolve: {
+                conditions: ["deno"],
+                externalConditions: ["deno"],
+            },
+        },
+    },
+    server: { port: Number.parseInt(Deno.env.get("PORT") || "1612") },
 });
