@@ -1,5 +1,5 @@
-import { db } from "$db";
-import { GUEST_BOOK, type GuestBook, getId } from "$db/schema.ts";
+import { kv } from "$db";
+import { getId, GUEST_BOOK, type GuestBook } from "$db/schema.ts";
 import type { Route } from "./+types/route.ts";
 import { Welcome } from "./Welcome.tsx";
 
@@ -26,14 +26,14 @@ export async function action({ request }: Route.ActionArgs) {
 
     try {
         const newId = await getId();
-        await db.set([GUEST_BOOK, newId], { id: newId, name, email });
+        await kv.set([GUEST_BOOK, newId], { id: newId, name, email });
     } catch {
         return { guestBookError: "Error adding to guest book" };
     }
 }
 
 export async function loader() {
-    const guestBook = (await Array.fromAsync(db.list<GuestBook>({ prefix: [GUEST_BOOK] }))).map(
+    const guestBook = (await Array.fromAsync(kv.list<GuestBook>({ prefix: [GUEST_BOOK] }))).map(
         (entry) => entry.value,
     );
 
