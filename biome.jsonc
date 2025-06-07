@@ -121,6 +121,10 @@
                     "allowTrailingCommas": true
                 }
             }
+        },
+        {
+            "includes": ["./.react-router/**"],
+            "linter": { "enabled": false }
         }
     ]
 }
