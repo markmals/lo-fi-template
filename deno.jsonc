@@ -15,7 +15,7 @@
         "db-bootstrap": "deno run -A ./src/scripts/db-bootstrap.ts",
         "fmt": "deno fmt .",
         "lint": "deno run -A npm:@biomejs/biome@^2.0.0-beta.5 check --write --unsafe --assist-enabled=true .",
-        "clean": {
+        "check": {
             "dependencies": ["fmt", "lint"]
         },
         "typegen": "deno run -A npm:@react-router/dev typegen",
@@ -56,6 +56,7 @@
         "strict": true,
         "lib": ["Deno.NS", "Deno.Unstable", "DOM", "DOM.Iterable", "ES2022"],
         "jsx": "react-jsx",
+        "jsxImportSource": "react",
         "types": ["vite/client"],
         "rootDirs": [".", "./.react-router/types"],
         "checkJs": true,
@@ -65,8 +66,8 @@
         "indentWidth": 4,
         "lineWidth": 100,
         "singleQuote": false,
-        "proseWrap": "always"
+        "proseWrap": "never"
     },
     // Disable Deno Lint; use Biome instead
-    "lint": { "exclude": ["**/*"] }
+    "lint": { "exclude": ["./"] }
 }
