@@ -66,7 +66,8 @@
         "indentWidth": 4,
         "lineWidth": 100,
         "singleQuote": false,
-        "proseWrap": "never"
+        "proseWrap": "never",
+        "exclude": ["./.react-router/**"]
     },
     // Disable Deno Lint; use Biome instead
     "lint": { "exclude": ["./"] }
