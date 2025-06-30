@@ -10,29 +10,18 @@ import {
 import type { Route } from "./+types/root.ts";
 import stylesheet from "./styles/index.css?url";
 
-export const links: Route.LinksFunction = () => [
-    { rel: "preconnect", href: "https://fonts.googleapis.com" },
-    {
-        rel: "preconnect",
-        href: "https://fonts.gstatic.com",
-        crossOrigin: "anonymous",
-    },
-    {
-        rel: "stylesheet",
-        href:
-            "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-    },
-    { rel: "stylesheet", href: stylesheet },
-];
-
 export function Layout({ children }: PropsWithChildren) {
     return (
         <html lang="en">
             <head>
+                <Meta />
                 <meta charSet="utf-8" />
                 <meta content="width=device-width, initial-scale=1" name="viewport" />
-                <Meta />
                 <Links />
+                <link href="https://fonts.googleapis.com" rel="preconnect" />
+                <link crossOrigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect" />
+                <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+                <link href={stylesheet} rel="stylesheet" />
             </head>
             <body>
                 {children}

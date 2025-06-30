@@ -1,15 +1,13 @@
 {
     "recommendations": [
+        "Anthropic.claude-code",
+        "biomejs.biome",
         "bradlc.vscode-tailwindcss",
-        "christian-kohler.npm-intellisense",
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
+        "denoland.vscode-deno",
         "github.vscode-github-actions",
-        "ms-azuretools.vscode-docker",
-        "quicktype.quicktype",
-        "RapidAPI.vscode-rapidapi-client",
-        "unifiedjs.vscode-mdx",
-        // "vitest.explorer",
-        "wayou.vscode-todo-highlight"
+        "GitHub.vscode-pull-request-github",
+        // "unifiedjs.vscode-mdx",
+        "vitest.explorer",
+        "wayou.vscode-todo-highlight",
     ]
 }

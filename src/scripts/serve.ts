@@ -1,7 +1,6 @@
-import { api } from "$api";
-import { serveDir, serveFile } from "@std/http/file-server";
 import { Hono } from "hono";
 import { createRequestHandler } from "react-router";
+import { reactRouter } from "./react-router-hono-middleware.ts";
 
 const handler = createRequestHandler(
     // @ts-expect-error React Router server build is not typed
@@ -10,24 +9,7 @@ const handler = createRequestHandler(
 );
 
 const app = new Hono();
-app.route("/api", api);
-app.use(async (c) => {
-    const pathname = new URL(c.req.url).pathname;
-
-    if (pathname === "/favicon.ico") {
-        return serveFile(c.req.raw, "build/client/favicon.ico");
-    }
-
-    if (pathname.startsWith("/assets/")) {
-        return serveDir(c.req.raw, {
-            fsRoot: "build/client/assets",
-            urlRoot: "assets",
-            headers: ["Cache-Control: public, max-age=31536000, immutable"],
-        });
-    }
-
-    return await handler(c.req.raw);
-});
+app.use(reactRouter(handler));
 
 const port = Number.parseInt(Deno.env.get("PORT") || "3000");
 
