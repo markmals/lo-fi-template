@@ -1,12 +1,17 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@cliffy/command@^1.0.0-rc.7": "1.0.0-rc.7",
+    "jsr:@cliffy/flags@1.0.0-rc.7": "1.0.0-rc.7",
+    "jsr:@cliffy/internal@1.0.0-rc.7": "1.0.0-rc.7",
+    "jsr:@cliffy/table@1.0.0-rc.7": "1.0.0-rc.7",
     "jsr:@std/assert@^1.0.12": "1.0.13",
     "jsr:@std/cli@^1.0.16": "1.0.20",
     "jsr:@std/cli@^1.0.20": "1.0.20",
     "jsr:@std/dotenv@*": "0.225.5",
     "jsr:@std/encoding@^1.0.10": "1.0.10",
     "jsr:@std/fmt@^1.0.8": "1.0.8",
+    "jsr:@std/fmt@~1.0.2": "1.0.8",
     "jsr:@std/fs@^1.0.18": "1.0.18",
     "jsr:@std/html@^1.0.4": "1.0.4",
     "jsr:@std/http@^1.0.14": "1.0.18",
@@ -18,6 +23,7 @@
     "jsr:@std/path@^1.0.8": "1.1.0",
     "jsr:@std/path@^1.1.0": "1.1.0",
     "jsr:@std/streams@^1.0.10": "1.0.10",
+    "jsr:@std/text@~1.0.7": "1.0.14",
     "npm:@biomejs/biome@^2.0.6": "2.0.6",
     "npm:@deno/vite-plugin@^1.0.4": "1.0.5_vite@7.0.0__@types+node@22.15.34__picomatch@4.0.2_@types+node@22.15.34_@types+node@22.15.15",
     "npm:@mizchi/drizzle-orm@~0.41.1": "0.41.1",
@@ -36,10 +42,36 @@
     "npm:react-router@^7.6.0": "7.6.3_react@19.1.0_react-dom@19.1.0__react@19.1.0",
     "npm:react@^19.1.0": "19.1.0",
     "npm:tailwindcss@^4.1.3": "4.1.11",
+    "npm:vite@*": "7.0.0_@types+node@22.15.34_picomatch@4.0.2_@types+node@22.15.15",
     "npm:vite@7": "7.0.0_@types+node@22.15.34_picomatch@4.0.2_@types+node@22.15.15",
     "npm:vitest@^3.2.4": "3.2.4_@types+node@22.15.34_vite@7.0.0__@types+node@22.15.34__picomatch@4.0.2_@types+node@22.15.15"
   },
   "jsr": {
+    "@cliffy/command@1.0.0-rc.7": {
+      "integrity": "1288808d7a3cd18b86c24c2f920e47a6d954b7e23cadc35c8cbd78f8be41f0cd",
+      "dependencies": [
+        "jsr:@cliffy/flags",
+        "jsr:@cliffy/internal",
+        "jsr:@cliffy/table",
+        "jsr:@std/fmt@~1.0.2",
+        "jsr:@std/text"
+      ]
+    },
+    "@cliffy/flags@1.0.0-rc.7": {
+      "integrity": "318d9be98f6a6417b108e03dec427dea96cdd41a15beb21d2554ae6da450a781",
+      "dependencies": [
+        "jsr:@std/text"
+      ]
+    },
+    "@cliffy/internal@1.0.0-rc.7": {
+      "integrity": "10412636ab3e67517d448be9eaab1b70c88eba9be22617b5d146257a11cc9b17"
+    },
+    "@cliffy/table@1.0.0-rc.7": {
+      "integrity": "9fdd9776eda28a0b397981c400eeb1aa36da2371b43eefe12e6ff555290e3180",
+      "dependencies": [
+        "jsr:@std/fmt@~1.0.2"
+      ]
+    },
     "@std/assert@1.0.13": {
       "integrity": "ae0d31e41919b12c656c742b22522c32fb26ed0cba32975cb0de2a273cb68b29",
       "dependencies": [
@@ -69,7 +101,7 @@
       "dependencies": [
         "jsr:@std/cli@^1.0.20",
         "jsr:@std/encoding",
-        "jsr:@std/fmt",
+        "jsr:@std/fmt@^1.0.8",
         "jsr:@std/fs",
         "jsr:@std/html",
         "jsr:@std/media-types",
@@ -101,6 +133,9 @@
     },
     "@std/streams@1.0.10": {
       "integrity": "75c0b1431873cd0d8b3d679015220204d36d3c7420d93b60acfc379eb0dc30af"
+    },
+    "@std/text@1.0.14": {
+      "integrity": "1a810108482414d19112b8b506ad0b7cba826000cd13f74274ffda6dd83d273f"
     }
   },
   "npm": {
@@ -2418,6 +2453,7 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@cliffy/command@^1.0.0-rc.7",
       "jsr:@std/assert@^1.0.12",
       "jsr:@std/cli@^1.0.16",
       "jsr:@std/http@^1.0.14",

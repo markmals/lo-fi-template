@@ -38,6 +38,7 @@
         "$db/": "./src/database/",
 
         "@biomejs/biome": "npm:@biomejs/biome@^2.0.6",
+        "@cliffy/command": "jsr:@cliffy/command@^1.0.0-rc.7",
         "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.4",
         "@mizchi/drizzle-orm": "npm:@mizchi/drizzle-orm@^0.41.1",
         "@react-router/dev": "npm:@react-router/dev@7.6.3",
